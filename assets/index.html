@@ -1,0 +1,94 @@
+@@include('template/head.html', {
+	"pagetitle": "Главная страница",
+	"bodyclass": ""
+})
+
+@@include('template/page-header.html')
+
+<div class="main-block">
+	<div class="main-block__logo-illustration">
+		<img src="img/header_logo.svg" alt="">
+	</div>
+	<div class="main-block__illustration-block">
+		<img src="img/header_illustration.svg" alt="">
+	</div>
+	<div class="container">
+		<div class="main-block__wrapper">
+			<div class="main-block__content-block">
+				<div class="main-block__title">Use a convenient platform <span>to search and add</span> real estate</div>
+				<div class="main-block__description"><p>Our experts have developed a service that collects all offers in one place and reduces the time for searching for real estate. We care about your time</p></div>
+				<div class="main-block__content-wrapper">
+					<a href="javascript:;" class="btn btn--trial">Try it for free</a>
+					<a href="javascript:;" class="btn btn--more">Learn more</a>
+				</div>
+			</div>
+			<div class="main-block__slider-block">
+				<div class="main-block__slider-wrapper">
+					<div class="main-block__slide">
+						<a data-fancybox="gallery" href="img/slide-photo-1.png" data-caption="Total cost calculation"><img src="img/slide-photo-1.png"></a>
+						<div class="main-block__slide-description">Total cost calculation</div>
+					</div>
+					<div class="main-block__slide">
+						<a data-fancybox="gallery" href="img/slide-photo-2.png" data-caption="Total cost calculation"><img src="img/slide-photo-2.png"></a>
+						<div class="main-block__slide-description">Total cost calculation</div>
+					</div>
+				</div>
+				<div class="main-block__slide-main-block">
+					<div class="main-block__slide-main">
+						<svg width="8" height="8" class="main-block__tablet-button">
+							<use xlink:href="#tablet_button"></use>
+						</svg>
+						<a data-fancybox="gallery" href="img/slide-photo-3.png" data-caption="Total cost calculation"><img src="img/slide-photo-3.png"></a>
+						<svg width="9" height="37" class="main-block__tablet-figure">
+							<use xlink:href="#tablet_figure"></use>
+						</svg>
+					</div>
+					<div class="main-block__hotspot-block">
+						<a data-fancybox="gallery" href="img/slide-photo-1.png" class="main-block__hotspot-option first sonar">
+							<svg width="6" height="6">
+								<use xlink:href="#tablet_plus"></use>
+							</svg>
+						</a>
+						<a data-fancybox="gallery" href="img/slide-photo-2.png" class="main-block__hotspot-option second sonar">
+							<svg width="6" height="6">
+								<use xlink:href="#tablet_plus"></use>
+							</svg>
+						</a>
+						<a data-fancybox="gallery" href="img/slide-photo-4.png" class="main-block__hotspot-option third sonar">
+							<svg width="6" height="6">
+								<use xlink:href="#tablet_plus"></use>
+							</svg>
+						</a>
+						<a data-fancybox="gallery" href="img/slide-photo-5.png" class="main-block__hotspot-option fourth sonar">
+							<svg width="6" height="6">
+								<use xlink:href="#tablet_plus"></use>
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div class="main-block__slider-wrapper">
+					<div class="main-block__slide">
+						<a data-fancybox="gallery" href="img/slide-photo-4.png" data-caption="Total cost calculation"><img src="img/slide-photo-1.png"></a>
+						<div class="main-block__slide-description">Total cost calculation</div>
+					</div>
+					<div class="main-block__slide">
+						<a data-fancybox="gallery" href="img/slide-photo-5.png" data-caption="Total cost calculation"><img src="img/slide-photo-2.png"></a>
+						<div class="main-block__slide-description">Total cost calculation</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@@include('template/page-footer.html')
+
+@@include('template/popups.html')
+@@include('template/sprite.html')
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/plugins.min.js"></script>
+<script src="js/main.min.js"></script>
+
+</body>
+</html>
