@@ -68,6 +68,9 @@
 		font-weight: 400;
 		color: #fff;
 		margin-bottom: 30px;
+		p {
+			margin: 0;
+		}
 	}
 	&__content-wrapper {
 		display: flex;
@@ -150,6 +153,13 @@
 		line-height: 1.2;
 		font-weight: 400;
 		color: #A6B0CF;
+		transition: all 0.5s ease-in-out;
+	}
+	&__slide-description.first.active,
+	&__slide-description.second.active,
+	&__slide-description.third.active,
+	&__slide-description.fourth.active {
+		color: #fff;
 	}
 	&__tablet-button {
 		position: absolute;
@@ -168,7 +178,7 @@
 		display: block;
 	}
 	&__hotspot-block {
-
+		display: block;
 	}
 	&__hotspot-option {
 		display: flex;
@@ -292,19 +302,120 @@ $green: #34A853;
 
 @include for-size(mobile) {
 	.main-block {
-
+		padding-top: 210px;
+		&__slider-wrapper {
+			display: none;
+		}
+		&__logo-illustration {
+			display: none;
+		}
+		&__title {
+			font-size: 24px;
+		}
+		&__slide-main-block {
+			margin: 0 auto;
+		}
+		&__hotspot-option {
+			&.first::before, &.first::after,
+			&.second::before, &.second::after,
+			&.third::before, &.third::after,
+			&.fourth::before, &.fourth::after {
+				display: none;
+			}
+		}
+		&__hotspot-option.first {
+			top: 40px;
+			left: 40px;
+		}
+		&__hotspot-option.second {
+			top: 150px;
+			left: 110px;
+		}
+		&__hotspot-option.third {
+			top: 50px;
+			right: 40px;
+		}
+		&__hotspot-option.fourth {
+			top: 125px;
+			right: 70px;
+		}
+		&__tablet-button {
+			top: 104px;
+			left: 4px;
+		}
+		&__tablet-figure {
+			top: 82px;
+			right: 4px;
+		}
+		&__description {
+			max-width: 650px;
+			font-size: 14px;
+		}
+		&__content-wrapper {
+			display: block;
+			.btn {
+				margin: 0 auto;
+			}
+			.btn:not(:last-child) {
+				margin-bottom: 20px;
+			}
+		}
+		&__slide-main {
+			width: 100%;
+			height: 200px;
+		}
+		&__slide-main a {
+			width: 270px;
+			height: auto;
+		}
 	}
 }
 
 @include for-size(tablet) {
-
+	.main-block {
+		&__slider-wrapper {
+			display: none;
+		}
+		&__logo-illustration {
+			display: none;
+		}
+		&__title {
+			font-size: 36px;
+		}
+		&__slide-main-block {
+			margin: 0 auto;
+		}
+		&__hotspot-option {
+			&.first::before, &.first::after,
+			&.second::before, &.second::after,
+			&.third::before, &.third::after,
+			&.fourth::before, &.fourth::after {
+				display: none;
+			}
+		}
+		&__description {
+			max-width: 650px;
+		}
+	}
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1199px) {
 
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+	.main-block {
+		&__logo-illustration {
+			display: none;
+		}
+	}
+}
 
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+	.main-block {
+		&__logo-illustration {
+			left: -80px;
+		}
+	}
 }
 

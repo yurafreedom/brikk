@@ -13,12 +13,16 @@
 @import "plugins/fullpage";
 @import "plugins/fancybox.min";
 @import "plugins/dropdown";
+@import "plugins/swiper.min";
 
 // BLOCKS STYLE
 @import "blocks/page-header";
 @import "blocks/plugins";
 @import "blocks/popup-block";
 @import "blocks/main-block";
+@import "blocks/offer-block";
+@import "blocks/reviews-block";
+@import "blocks/overview-block";
 @import "blocks/page-footer";
 
 body {

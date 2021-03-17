@@ -1,51 +1,80 @@
-if(/Android/.test(navigator.appVersion)) {
-	window.addEventListener("resize", function() {
-		if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA") {
-			document.activeElement.scrollIntoView();
-		}
-	});
-} 
+// if(/Android/.test(navigator.appVersion)) {
+// 	window.addEventListener("resize", function() {
+// 		if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA") {
+// 			document.activeElement.scrollIntoView();
+// 		}
+// 	});
+// } 
 
+// Set fixed elements that need padding-right when locking the scroll
+window.paddingRightItems = '#page-header';
 
-var block = $('<div>').css({'height':'50px','width':'50px'}),
-    indicator = $('<div>').css({'height':'200px'}),
-    scrollbarWidth = 0;
-
-$('body').append(block.append(indicator));
-var w1 = $('div', block).innerWidth();    
-block.css('overflow-y', 'scroll');
-var w2 = $('div', block).innerWidth();
-$(block).remove();
-scrollbarWidth = (w1 - w2);
-
-
+// Locking scroll plugin options
 var bodyScrollOptions = {
-    reserveScrollBarGap: true
+    reserveScrollBarGap: true,
+    allowTouchMove: true
 };
 
 function openModal(hrefModal) {
-    
+
     if ($(hrefModal).length > 0){
-        $(hrefModal).fadeIn(300);
+		$(hrefModal).trigger('beforeOpenModal').addClass('active');
+		
+		setTimeout(function() {
+			$(hrefModal).addClass('fadeIn').trigger('afterOpenModal');
+		}, 50);
     
         bodyScrollLock.clearAllBodyScrollLocks();
         bodyScrollLock.disableBodyScroll(hrefModal, bodyScrollOptions);
     }
+
 }
 
-function closeModals() {
-	if (scrollbarWidth > 0) {
-		$('.popup-block:not(:hidden)').fadeOut(200, function() {
-            bodyScrollLock.clearAllBodyScrollLocks();
-        });
-	} else {
-		$('.popup-block:not(:hidden)').fadeOut(200);
-		
+function closeAllModals() {
+	$('.popup-block.active').trigger('beforeCloseModal').removeClass('fadeIn');
+	
+	setTimeout(function() {
+		$('.popup-block.active').removeClass('active', function() {
+			bodyScrollLock.clearAllBodyScrollLocks();
+		}).trigger('afterCloseModal');
+
 		bodyScrollLock.clearAllBodyScrollLocks();
-	}
+	}, 200);
 }
 
+function closeModal(hrefModal) {
+	$(hrefModal).trigger('beforeCloseModal').removeClass('fadeIn');
+	
+	setTimeout(function() {
+		$(hrefModal).removeClass('active', function() {
+			bodyScrollLock.clearAllBodyScrollLocks();
+		}).trigger('afterCloseModal');
 
+		bodyScrollLock.clearAllBodyScrollLocks();
+	}, 200);
+}
+
+$(document).keydown(function(event) { 
+	if (event.keyCode == 27) { 
+		closeAllModals();
+	}
+});
+
+// Switch Modal function
+$(document.body).on('click','[data-toggle="switch-modal"]',function(e) {
+	e.preventDefault();
+	
+	var hrefModal = $(this).attr('data-target');
+	
+	$('.popup-block:not(:hidden)').removeClass('fadeIn active');
+	
+	$(hrefModal).addClass('active').addClass('fadeIn').scrollTop(0);
+    
+	bodyScrollLock.disableBodyScroll($(hrefModal)[0], bodyScrollOptions);
+	
+});
+
+// Basic open modal
 $(document.body).on('click','[data-toggle="modal"]',function(e) {
 	e.preventDefault();
 	
@@ -54,21 +83,20 @@ $(document.body).on('click','[data-toggle="modal"]',function(e) {
 	openModal(hrefModal);
 });
 
+// Close modals if clicked on popup overlay
 $(document.body).on('click','.popup-block__overlay',function(e) {
-	var closeButton = $(this).children('[data-toggle="dismiss"]');
+	var closeButton = $(this).children('[data-toggle="modal-dismiss"]');
 	
-	if (e.target != this) {
-//		return false;
-	} else {
-		closeModals();
+	if (!(e.target != this)) {
+		closeModal($(this).parents('.popup-block')[0]);
 	}
 });
 
-
-$(document.body).on('click','[data-toggle="dismiss"]',function(e) {
+// Attribute for closing modals
+$(document.body).on('click','[data-toggle="modal-dismiss"]',function(e) {
 	e.preventDefault();
 	
-	closeModals();
+	closeModal($(this).parents('.popup-block')[0]);
 });
 
 
@@ -128,4 +156,46 @@ $("#menu-toggle-active").click(function(e) {
 
 $('.btn--language').on('click', function() {
 	$(this).toggleClass('active');
+});
+
+$(document).ready(function () {
+ if( $(".swiper-container").length ) {
+    var reviewsSwiper = new Swiper ('#reviews_slider', {
+    slidesPerView: 'auto',
+    speed: 1000,
+		spaceBetween: 50,
+		navigation: {
+			nextEl: '.reviews-button-next',
+			prevEl: '.reviews-button-prev',
+		},
+		pagination: {
+			el: ".js--reviews-pag",
+			clickable: true,
+		},
+    });
+    $(window).resize(function() {
+        reviewsSwiper.update(true),
+        console.log("reviewsSwiper update")
+    })
+ }
+});
+
+$('.main-block__hotspot-option.first').on('click', function() {
+	$('.main-block__slide-description.first').toggleClass('active');
+});
+
+$('.main-block__hotspot-option.second').on('click', function() {
+	$('.main-block__slide-description.second').toggleClass('active');
+});
+
+$('.main-block__hotspot-option.third').on('click', function() {
+	$('.main-block__slide-description.third').toggleClass('active');
+});
+
+$('.main-block__hotspot-option.fourth').on('click', function() {
+	$('.main-block__slide-description.fourth').toggleClass('active');
+});
+
+$('.overview-block__video-block').on('click', function() {
+	$(this).addClass('active');
 })
