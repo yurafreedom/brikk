@@ -9,16 +9,16 @@
 	background: none;
 	overflow: hidden;
 	line-height: normal;
-	color: #000;
-	height: 65px;
-	font-weight: 500;
-	font-size: 14px;
-	font-family: $font-family; 
-	border-radius: 20px;
-	padding-left: 15px;
-	padding-right: 15px;
+	color: #354052;
 	width: 100%;
-	background-color: #fff;
+	height: 56px;
+	font-weight: 500;
+	font-size: 16px;
+	font-family: $font-family; 
+	border-radius: 8px;
+	padding-left: 25px;
+	padding-right: 25px;
+	background-color: #F2F6FE;
 
 	// Unstyle the caret on `<select>`s in IE10+.
 	&::-ms-expand {

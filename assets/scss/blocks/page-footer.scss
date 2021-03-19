@@ -1,15 +1,174 @@
 .page-footer {
-
+	position: relative;
+	background-color: #2A3042;
+	&__wrapper {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	&__content-block {
+		display: block;
+		margin-right: 75px;
+	}
+	&__logo {
+		display: flex;
+		font-display: row;
+		align-items: center;
+		flex-shrink: 0;
+		transition: all 0.5s ease-in-out;
+		margin-bottom: 30px;
+	}
+	&__logo:hover &__logo-name {
+		fill: #fff;
+	}
+	&__logo-figure {
+		display: block;
+		margin-right: 8px;
+	}
+	&__logo-name {
+		display: block;
+		fill: #A6B0CF;
+		transition: all 0.5s ease-in-out;
+	}
+	&__content-text {
+		display: block;
+		width: 100%;
+		max-width: 360px;
+		font-size: 13px;
+		font-weight: 400;
+		line-height: 1.2;
+		color: #A6B0CF;
+		p {
+			margin: 0;
+		}
+	}
+	&__nav-wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		margin-right: 268px;
+	}
+	&__nav-block {
+		position: relative;
+		display: block;
+		&:not(:last-child) {
+			margin-right: 90px;
+		}
+	}
+	&__nav ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: block;
+	}
+	&__nav ul li:not(:last-child) {
+		margin-bottom: 16px;
+	}
+	&__nav ul li a {
+		display: block;
+		font-size: 14px;
+		font-weight: 400;
+		color: #fff;
+		transition: all 0.5s ease-in-out;
+		&:hover {
+			color: #A6B0CF;
+			text-decoration: none;
+		}
+	}
+	&__nav-title {
+		display: block;
+		font-size: 20px;
+		font-weight: 600;
+		color: #A6B0CF;
+		margin-bottom: 30px;
+	}
+	&__bottom-block {
+		background-color: #353C53;
+		display: block;
+		padding-top: 17px;
+		padding-bottom: 17px;
+	}
+	&__bottom-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__copyright-block {
+		display: block;
+		font-size: 14px;
+		font-weight: 400;
+		color: #A6B0CF;
+		line-height: 1.2;
+	}
+	&__social-block ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+	}
+	&__social-block ul li:not(:last-child) {
+		margin-right: 30px;
+	}
+	&__social-block ul li a svg {
+		display: block;
+		stroke: #A6B0CF;
+		transition: all 0.5s ease-in-out;
+		&:hover {
+			stroke: #fff;
+		}
+	}
 }
 
 @include for-size(mobile) {
 	.page-footer {
-
+		&__wrapper {
+			display: block;
+		}
+		&__content-block {
+			margin-right: 0;
+			margin-bottom: 45px;
+		}
+		&__nav-wrapper {
+			margin-right: 0;
+			margin-bottom: 45px;
+		}
+		&__nav-block:not(:last-child) {
+			margin-right: 45px;
+		}
+		&__bottom-block {
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		&__bottom-wrapper {
+			display: block;
+		}
+		&__copyright-block {
+			display: block;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		&__social-block ul {
+			justify-content: center;
+		}
 	}
 }
 
 @include for-size(tablet) {
 	.page-footer {
-		
+		&__content-block {
+			margin-right: 30px;
+		}
+		&__nav-wrapper {
+			margin-right: 30px;
+		}
+		&__nav-block:not(:last-child) {
+			margin-right: 30px;
+		}
+		&__content-text {
+			max-width: 280px;
+		}
 	}
 }

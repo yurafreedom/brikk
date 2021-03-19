@@ -134,3 +134,23 @@
 #reviews_slider .swiper-slide {
   width: 545px !important;
 }
+
+.swiper-wrapper {
+  padding-left: 10px;
+}
+
+@include for-size(mobile) {
+  #reviews_slider .swiper-slide {
+    width: 250px !important;
+  }
+  #jq-dropdown-3.jq-dropdown .jq-dropdown-menu {
+    min-width: 290px;
+    max-width: 290px;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-wrap: wrap;
+  }
+  #jq-dropdown-3.jq-dropdown .jq-dropdown-menu .jq-dropdown-wrapper {
+    max-width: 120px;
+  }
+}

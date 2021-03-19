@@ -172,6 +172,14 @@ $(document).ready(function () {
 			el: ".js--reviews-pag",
 			clickable: true,
 		},
+    breakpoints: {
+        320: {
+        	spaceBetween: 20,
+        },
+        768: {
+
+        },
+    },
     });
     $(window).resize(function() {
         reviewsSwiper.update(true),
@@ -181,21 +189,37 @@ $(document).ready(function () {
 });
 
 $('.main-block__hotspot-option.first').on('click', function() {
+	$(this).addClass('active');
 	$('.main-block__slide-description.first').toggleClass('active');
 });
 
 $('.main-block__hotspot-option.second').on('click', function() {
+	$(this).addClass('active');
 	$('.main-block__slide-description.second').toggleClass('active');
 });
 
 $('.main-block__hotspot-option.third').on('click', function() {
+	$(this).addClass('active');
 	$('.main-block__slide-description.third').toggleClass('active');
 });
 
 $('.main-block__hotspot-option.fourth').on('click', function() {
+	$(this).addClass('active');
 	$('.main-block__slide-description.fourth').toggleClass('active');
 });
 
 $('.overview-block__video-block').on('click', function() {
 	$(this).addClass('active');
 })
+
+$('.form-control').focusin(function() {
+	$(this).parent().addClass('active');
+});
+
+$('.form-control').focusout(function() {
+	$('.form-block__input-wrapper').removeClass('active');
+});
+
+$('.form-control').keyup(function() {
+	$(this).parent().addClass('remove');
+});

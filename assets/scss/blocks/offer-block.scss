@@ -6,7 +6,7 @@
 	&__logo-block {
 		position: absolute;
 		top: 0;
-		right: 0;
+		right: -60px;
 	}
 	&__content-block {
 		position: relative;
@@ -85,6 +85,46 @@
 			position: relative;
 			display: block;
 			bottom: -4px;
+		}
+	}
+}
+
+@include for-size(mobile) {
+	.offer-block {
+		padding-top: 60px;
+		&__logo-block {
+			display: none;
+		}
+		&__title {
+			font-size: 32px;
+			max-width: 200px;
+			margin-bottom: 30px;
+		}
+		&__description {
+			font-size: 14px;
+		}
+		&__content-block {
+			margin-bottom: 60px;
+		}
+		&__card-block {
+			margin-bottom: 40px;
+		}
+		&__card-block:not(:nth-child(2n)) {
+			margin-right: 0;
+		}
+		&__button-wrapper {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+@include for-size(tablet) {
+	.offer-block {
+		&__description {
+			max-width: 600px;
+		}
+		&__card-block {
+			max-width: 300px;
 		}
 	}
 }

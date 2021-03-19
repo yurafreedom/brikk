@@ -188,6 +188,7 @@
 		width: 18px;
 		height: 18px;
 		background-color: #34A853;
+		transition: all 0.5s ease-in-out;
 		&.first {
 			position: absolute;
 			top: 78px;
@@ -280,6 +281,10 @@
 			height: 1px;
 			background-color: #4D5772;
 		}
+	}
+	&__hotspot-option.first.active {
+		animation: none;
+		background-color: #46C668;
 	}
 }
 

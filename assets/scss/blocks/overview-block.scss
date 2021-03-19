@@ -7,6 +7,7 @@
 	&__wrapper {
 		position: relative;
 		display: block;
+		z-index: 10;
 		.btn {
 			margin: 0 auto; 
 		}
@@ -59,7 +60,10 @@
 		pointer-events: none;
 		position: absolute;
 		top: 220px;
-		left: 400px;
+		left: 50%;
+		margin-left: -29px;
+		display: block;
+		height: 42px;
 		z-index: 10;
 		outline: 0;
 		svg {
@@ -70,5 +74,43 @@
 		position: absolute;
 		right: 0;
 		bottom: 0;
+	}
+}
+
+@include for-size(mobile) {
+	.overview-block {
+		padding-top: 60px;
+		&__logo-illustration {
+			display: none;
+		}
+		&__illustration-block {
+			right: -60px;
+		}
+		&__title {
+			font-size: 32px;
+		}
+		&__preview-play-button {
+			top: 65px;
+		}
+		&__video-block {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+@include for-size(tablet) {
+	.overview-block {
+		&__logo-illustration {
+			display: none;
+		}
+		&__video-block {
+			max-width: 600px;
+		}
+		&__illustration-block {
+			right: -60px;
+		}
+		&__preview-play-button {
+			top: 157px;
+		}
 	}
 }
